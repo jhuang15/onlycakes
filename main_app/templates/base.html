@@ -9,44 +9,56 @@
     <title>Cat Collector</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
-  <body>
+  <body class="bg-image" style="background-image: url('https://i.ibb.co/1J9G0wD/image-2.png');">
     <header class="navbar-fixed">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-custom navbar-text">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Only Cakes</a>
+          <a class="navbar-brand" href="/">
+            <img src="https://i.ibb.co/fdp8h7M/image-1.png" width="228" height="76" alt="">
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
 
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cakes_create' %}">Add a Cake!</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cakes">View Cakes</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">Logout</a>
               </li>
             {% else %}
-              <li><a href="{% url 'signup' %}">Sign Up</a></li>
-              <li><a href="{% url 'login' %}">Log In</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+              </li>
             {% endif %}
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    <main class="container">
+    <main class="card-container">
       {% block content %}
       {% endblock %}
     </main>
     <footer class="page-footer">
-      <div class="right">All Rights Reserved, &copy; 2021 Cat Collector &nbsp;</div>
+      <!-- <div class="right">All Rights Reserved, &copy; 2021 Cat Collector &nbsp;</div> -->
     </footer>
     
     
