@@ -1,0 +1,47 @@
+.bg-image {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    background-position: center;
+}
+
+.navbar-custom {
+    background-color: rgb(215, 219, 220);
+}
+
+.navbar-text {
+    color: black;
+}
+
+.btn {
+    border-color: black;
+}
+
+.slogan {
+    text-align: center;
+}
+
+.pslogan {
+    text-align: center;
+    font-size: 22px;
+}
+
+.home-container {
+    display: grid;
+    margin-top: 150px;
+}
+
+.card {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-table {
+    display: inline-block;
+}
+
+/* .container {
+    display: grid;
+} */

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="slogan">Cakes</h1>
+
+{% for cake in cakes %}
+  <div class="card">
+      <a href="/cakes/{{ cake.id }}">
+    <div class="card-content">
+      <div class="col-*-*">
+        <span class="card-title">{{ cake.name }}</span>
+      <p>Type: {{ cake.type }}</p>
+      <p>Description: {{ cake.description }}</p>
+      </div>
+    </div>
+    </a>
+  </div>
+{% endfor %}
+
+
+
+{% endblock %}
