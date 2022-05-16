@@ -2,6 +2,13 @@
 {% block content %}
 
 <div class="home-container">
+  <ul>
+    <form class="d-flex" method="POST" action="{% url 'cake_search' %}">
+        {% csrf_token %}
+      <input class="form-control me-2" type="search" placeholder="Search Cakes!" aria-label="Search" name="searched">
+      <button type="submit">Search</button>
+    </form>
+  </ul>
   <h1 class="slogan">Only Cakes, <br> nothing else.</h1>
   <p class="pslogan">Add in all your sweet or savory recipes all in one place, just as <br> long as it's only cakes.</p>
 </div>

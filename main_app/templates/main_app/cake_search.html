@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block content %} {% if searched %}
+<h1>You searched for {{ searched }}</h1>
+<br />
+{% for cake in cakes %}
+<a href="{% url 'detail' cake.id %}"> {{ cake }} </a><br />
+{% endfor %} {% else %}
+<h1>No search results came up!</h1>
+{% endif %} {% endblock %}

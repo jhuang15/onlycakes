@@ -32,6 +32,14 @@ def cakes_detail(request, cake_id):
   cake = Cake.objects.get(id=cake_id)
   return render(request, 'cakes/detail.html', { 'cake': cake})
 
+def cake_search(request):
+  if request.method == "POST":
+    searched = request.POST['searched']
+    cakes = Cake.objects.filter(name__contains=searched)
+    return render(request, 'main_app/cake_search.html', {'searched':searched, 'cakes':cakes})
+  else:
+    return render(request, 'main_app/cake_search.html', {})
+
 def signup(request):
   error_message = ''
   if request.method == 'POST':
