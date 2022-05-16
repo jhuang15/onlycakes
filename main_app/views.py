@@ -1,8 +1,10 @@
 from .models import Cake
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+
 
 class CakeCreate(CreateView):
   model = Cake
@@ -17,6 +19,9 @@ class CakeDelete(DeleteView):
   model = Cake
   success_url = '/cakes/'
 
+def cakes_by_tag(request, tag_slug):
+  cakes = Cake.objects.filter(tags__name__in=[tag_slug])
+  return render(request, 'cakes/index.html', {'cakes': cakes, 'tag': tag_slug})
 
 def home(request):
   return render(request, 'home.html')
