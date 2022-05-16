@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
-  <body class="bg-image" style="background-image: url('https://i.ibb.co/1J9G0wD/image-2.png');">
+  <body>
     <header class="navbar-fixed">
       <nav class="navbar navbar-expand-lg navbar-custom navbar-text">
         <div class="container-fluid">
@@ -40,6 +40,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">Logout</a>
               </li>
+                <form class="d-flex" method="POST" action="{% url 'cake_search' %}">
+                  {% csrf_token %}
+                <input class="form-control me-2" type="search" placeholder="Search Cakes!" aria-label="Search" name="searched">
+                <button type="submit">Search</button>
+                </form>
               <!-- <ul>
                 <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
