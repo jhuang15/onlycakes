@@ -11,7 +11,7 @@ class CakeCreate(CreateView):
 
 class CakeUpdate(UpdateView):
   model = Cake
-  fields = ['type', 'description']
+  fields = ['description', 'recipe']
 
 class CakeDelete(DeleteView):
   model = Cake

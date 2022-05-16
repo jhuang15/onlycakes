@@ -8,9 +8,13 @@
     <div class="card-content">
       <span class="card-title">{{ cake.name }}</span>
       <br>
-      <p>Type: {{ cake.type }}</p>
+      <p>Date: {{ cake.date }}</p>
       <br>
       <p>Description: {{ cake.description }}</p>
+      <br>
+      <p>Recipe: {{ cake.recipe }}</p>
+      <br>
+      <p>Created By: {{ cake.user }}</p>
     </div>
     <div class="card-action">
         <a href="{% url 'cakes_update' cake.id %}">Edit</a>
