@@ -1,9 +1,8 @@
 .bg-image {
-    background-size: 100%;
+    /* background-size: 80%;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    background-position: center;
+    background-color: black;
+    background-position: center; */
 }
 
 .navbar-custom {
@@ -14,22 +13,50 @@
     color: black;
 }
 
+.collapse {
+    justify-content: left;
+    margin-left: 3rem;
+}
+
 .btn {
     border-color: black;
 }
 
 .slogan {
     text-align: center;
+    justify-content: center;
+    margin-top: 5rem;
 }
 
 .pslogan {
+    justify-content: center;
     text-align: center;
+    margin-top: 12rem;
     font-size: 22px;
 }
 
 .home-container {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 150px; */
+    height: 100vh;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    background-position: center;
+}
+
+/* #cupcakepic {
+    margin-top: 10rem;
+} */
+
+.slogansss {
     display: grid;
-    margin-top: 150px;
+    margin-top: -1.3rem;
+    justify-content: center;
+}
+
+.slogan3 {
+    font-size: 18px;
 }
 
 .card {
@@ -41,7 +68,3 @@
 .form-table {
     display: inline-block;
 }
-
-/* .container {
-    display: grid;
-} */
