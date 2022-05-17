@@ -18,3 +18,12 @@ class Cake(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'cake_id': self.id})
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    cake = models.ForeignKey(Cake, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for cake_id: {self.cake_id} @{self.url}"
+
+

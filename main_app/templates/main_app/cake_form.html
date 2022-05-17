@@ -2,15 +2,17 @@
 
 {% block content %}
     {% if object %}
-        <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+  <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
     {% else %}
   <h1>Add a Cake!</h1>
   {% endif %}
-  <form action="" method="POST">
+  <form enctype="multipart/form-data" action="" method="POST">
     {% csrf_token %}
     <table>
       {{ form.as_table }}
     </table>
-    <input type="submit" value="Add Cake!" class="btn">
+    <input type="file" name="photo-file">
+    <br>
+    <input type="submit" value="Submit!" class="btn">
   </form>
 {% endblock %}
