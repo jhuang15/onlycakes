@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import environ
+environ.Env()
+environ.Env.read_env()
 
 # Application definition
 

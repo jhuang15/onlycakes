@@ -7,8 +7,13 @@
 <div class="card">
     <div class="card-content">
       <span class="card-title">{{ cake.name }}</span>
+      {% for photo in cake.photo_set.all %}
+      <img class="card-img-top" src="{{photo.url}}" alt="cake">
+      {% empty %}
+      <img class="card-img-top" src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" alt="cake">
+      {% endfor %}
       <br>
-      <p>Date: {{ cake.date }}</p>
+      <p>Date: {{ cake.creation_date }}</p>
       <br>
       <p>Description: {{ cake.description }}</p>
       <br>
@@ -20,6 +25,13 @@
         <a href="{% url 'cakes_by_tag' tag.slug %}">{{tag.name}}</a>
         {% endfor %}
     </div>
+    <form action="{% url 'add_photo' cake.id %}" enctype="multipart/form-data" method="POST" alt="Cake Photo" class="card-panel">
+      {% csrf_token %}
+      <input type="file" name="photo-file">
+      <br><br>
+      <input type="submit" class="btn" value="Upload Photo">
+    <input type="submit" value="Add Cake!" class="btn">
+  </form>
     <div class="card-action">
         <a href="{% url 'cakes_update' cake.id %}">Edit</a>
         <a href="{% url 'cakes_delete' cake.id %}">Delete</a>
