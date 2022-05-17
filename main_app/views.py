@@ -40,7 +40,7 @@ class CakeCreate(CreateView):
         
 class CakeUpdate(UpdateView):
   model = Cake
-  fields = ['description', 'recipe']
+  fields = ['name', 'description', 'recipe']
 
 class CakeDelete(DeleteView):
   model = Cake

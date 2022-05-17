@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>{{ cake.name }}</h1>
+<h1 id="detail-title">{{ cake.name }}</h1>
 
 
-<div class="card">
+<div class="card" id="detail-card" style="align-items: center;">
     <div class="card-content">
-      <span class="card-title">{{ cake.name }}</span>
+      <!-- <span class="card-title">{{ cake.name }}</span> -->
       {% for photo in cake.photo_set.all %}
-      <img class="card-img-top" src="{{photo.url}}" alt="cake">
+      <img class="card-img-top img-fluid" src="{{photo.url}}" alt="cake">
       {% empty %}
-      <img class="card-img-top" src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" alt="cake">
+      <img class="card-img-top img-fluid" id="detail-pic" src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" alt="cake">
       {% endfor %}
       <br>
       <p>Date: {{ cake.creation_date }}</p>
