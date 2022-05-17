@@ -6,13 +6,42 @@
     color: black;
 }
 
+#navbarNavDropdown {
+    justify-content: right;
+}
+
 .collapse {
     justify-content: left;
-    margin-left: 3rem;
+    /* margin-left: 3rem; */
 }
 
 .btn {
     border-color: black;
+}
+
+.home-body {
+    overflow-y:hidden;
+}
+
+.search-set {
+    display: flex;
+    justify-content: left;
+}
+
+#search-bar {
+    background-color: rgb(215, 219, 220); 
+    border: 2px solid #fff; 
+    box-shadow: none; 
+    border-radius: 50px;
+    font: rgb(1, 1, 1);
+}
+
+#search-button {
+    background-color: rgb(215, 219, 220); 
+    border: 2px solid #fff; 
+    box-shadow: none; 
+    border-radius: 50px;
+    color: rgb(127, 127, 127);
 }
 
 .slogan {
@@ -55,7 +84,7 @@
 .card-img-top {
     object-fit: fill; 
     object-position: center;
-    width: 100%;
+    width: 90%;
     max-height: 350px;
 }
 
@@ -75,9 +104,10 @@
 }
 
 #detail-card.card {
-    display: grid;
+    display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     height: 800px;
     width: 500px;
     margin-top: 1rem;
@@ -87,7 +117,9 @@
 }
 
 #detail-pic {
+    align-items: center;
     margin-top: 2rem;
+    max-width: 100%;
 }
 
 #detail-title {
@@ -97,4 +129,12 @@
     margin-bottom: 2rem;
     font-family: 'Cedarville Cursive', cursive;
     font-size: 5rem;
+}
+
+.choose-file {
+    width: 210px;
+}
+
+#file-upload-button {
+    background-color:blue;
 }

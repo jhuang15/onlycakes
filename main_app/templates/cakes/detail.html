@@ -13,29 +13,30 @@
       <img class="card-img-top img-fluid" id="detail-pic" src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" alt="cake">
       {% endfor %}
       <br>
-      <p>Date: {{ cake.creation_date }}</p>
       <br>
       <p>Description: {{ cake.description }}</p>
       <br>
       <p>Recipe: {{ cake.recipe }}</p>
       <br>
-      <p>Created By: {{ cake.user.username }}</p>
-      <br>
+      <p>Posted By: {{ cake.user.username }} on {{ cake.creation_date }}</p>
+      <p>Tags:</p>
       {% for tag in cake.tags.all %}
-        <a href="{% url 'cakes_by_tag' tag.slug %}">{{tag.name}}</a>
+      <a href="{% url 'cakes_by_tag' tag.slug %}">{{tag.name}}</a>
         {% endfor %}
     </div>
-    <form action="{% url 'add_photo' cake.id %}" enctype="multipart/form-data" method="POST" alt="Cake Photo" class="card-panel">
-      {% csrf_token %}
-      <input type="file" name="photo-file">
-      <br><br>
-      <input type="submit" class="btn" value="Upload Photo">
-    <input type="submit" value="Add Cake!" class="btn">
-  </form>
+    <br>
+      <form action="{% url 'add_photo' cake.id %}" enctype="multipart/form-data" method="POST" alt="Cake Photo" class="card-panel">
+        {% csrf_token %}
+        <input class="choose-file" type="file" name="photo-file">
+        <br><br>
+        <input type="submit" class="btn" value="Upload Photo">
+      <input type="submit" value="Add Cake!" class="btn">
+      </form>
+      <br>
     <div class="card-action">
         <a href="{% url 'cakes_update' cake.id %}">Edit</a>
         <a href="{% url 'cakes_delete' cake.id %}">Delete</a>
-      </div>
+    </div>
   </div>
 
 {% endblock %}
