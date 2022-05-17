@@ -8,7 +8,7 @@
     {% for cake in cakes %}
       <div class="col-lg-4 mb-4">
           <div class="card">
-            {% for photo in cake.photo_set.all %}
+            {% for photo in cake.photo_set.all|slice:":1" %}
             <img class="card-img-top" src="{{photo.url}}" alt="cake">
             {% empty %}
             <img class="card-img-top" src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" alt="cake">
