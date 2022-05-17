@@ -18,7 +18,7 @@
 .slogan {
     text-align: center;
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 
 .pslogan {
@@ -72,4 +72,29 @@
     overflow: hidden;
     max-width: 300px;
     text-overflow: ellipsis;
+}
+
+#detail-card.card {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 800px;
+    width: 500px;
+    margin-top: 1rem;
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px;
+}
+
+#detail-pic {
+    margin-top: 2rem;
+}
+
+#detail-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 5rem;
 }
