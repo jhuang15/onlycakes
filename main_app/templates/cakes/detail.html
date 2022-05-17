@@ -21,7 +21,7 @@
       <p>Posted By: {{ cake.user.username }} on {{ cake.creation_date }}</p>
       <p>Tags:</p>
       {% for tag in cake.tags.all %}
-      <a href="{% url 'cakes_by_tag' tag.slug %}">{{tag.name}}</a>
+      <a href="{% url 'cakes_by_tag' tag.slug %}" class="btn btn-danger btn-default link-light badge badge-dark">{{tag.name}}</a>
         {% endfor %}
     </div>
     <br>
