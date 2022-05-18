@@ -206,6 +206,28 @@
 
 
 #form_div {
+    display: grid;
+    /* flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    grid-template-columns: auto auto;
+    gap: 15px;
+    width: 50%;
+}
+
+#form_div input, #form_div textarea {
+    background: rgba(255,255,255,0.7);
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+#form_div label {
+    font-weight: bold;
+}
+
+#edit-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -245,6 +267,6 @@
 }
 
 #ed-but:hover {
-    color:white;
-    background-color: rgb(181, 181, 181);
+    color:rgb(0, 0, 0);
+    background-color: rgb(230, 229, 229);
 }
