@@ -8,12 +8,12 @@
     {% else %}
   <h1 id="h1_add">Add a Cake!</h1>
   {% endif %}
-  <form enctype="multipart/form-data" action="" method="POST">
+  <form enctype="multipart/form-data" action="" method="POST" id="edit-form">
     {% csrf_token %}
     <div class="form-group" id="form_div">
-      <table id="form_table">
-        {{ form.as_table }}
-      </table>
+      <!-- <table class="opacity-75" id="form_table"> -->
+        {{ form }}
+      <!-- </table> -->
       <br>
       <input class="choose-file" type="file" name="photo-file">
       <br><br>
