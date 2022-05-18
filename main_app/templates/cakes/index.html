@@ -7,7 +7,7 @@
   <div class="row">
     {% for cake in cakes %}
       <div class="col-lg-3 mb-4">
-          <div class="card">
+          <div class="card border-0">
             {% for photo in cake.photo_set.all|slice:":1" %}
             <img class="card-img-top" src="{{photo.url}}" alt="cake">
             {% empty %}
@@ -15,7 +15,7 @@
             {% endfor %}
               <div class="card-body">
                   <h5 class="card-title">{{ cake.name }}</h5>
-                  <p class="card-text">Description: {{ cake.description }}</p>
+                  <p class="card-text">{{ cake.description }}</p>
                   <a href="/cakes/{{ cake.id }}" class="btn btn-outline-primary btn-sm">See Details</a>
               </div>
           </div>
@@ -24,6 +24,7 @@
       {% endfor %}
   </div>
 </div>
+
 
 
 {% endblock %}
