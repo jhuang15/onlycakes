@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     {% for cake in cakes %}
-      <div class="col-lg-4 mb-4">
+      <div class="col-lg-3 mb-4">
           <div class="card">
             {% for photo in cake.photo_set.all|slice:":1" %}
             <img class="card-img-top" src="{{photo.url}}" alt="cake">

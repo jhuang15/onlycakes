@@ -8,11 +8,14 @@
   {% endif %}
   <form enctype="multipart/form-data" action="" method="POST">
     {% csrf_token %}
-    <table>
+    <div class="form-group" id="form_div">
+    <table id="form_table" >
       {{ form.as_table }}
+      
     </table>
     <input type="file" name="photo-file">
-    <br>
-    <input type="submit" value="Submit!" class="btn">
+    <br><br>
+    <input type="submit" value="Create" class="btn">
+    </div>
   </form>
 {% endblock %}

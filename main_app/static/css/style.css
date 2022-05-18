@@ -203,3 +203,13 @@
     margin-top: -14px;
     padding: 12px;
 }
+
+
+#form_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+    width: 10 vmin;
+}
