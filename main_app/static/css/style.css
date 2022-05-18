@@ -161,7 +161,6 @@
 
 #text-bg {
     background-color: white;
-    
     background: rgba(255,255,255,0.7);
     height: 18rem;
     width: 35rem;
@@ -210,6 +209,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid 1px black;
-    width: 10 vmin;
+    margin-top: 10vmin;
+}
+
+#h1_edit{
+    font-family: 'Cedarville Cursive', cursive;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vmin;
+    font-size: 10vmin;
+}
+
+#h1_add {
+    font-family: 'Cedarville Cursive', cursive;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vmin;
+    font-size: 10vmin;
 }

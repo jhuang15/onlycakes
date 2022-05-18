@@ -2,9 +2,9 @@
 
 {% block content %}
     {% if object %}
-  <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+  <h1 id="h1_edit">Edit <span class="teal-text">{{object.name}}</span></h1>
     {% else %}
-  <h1>Add a Cake!</h1>
+  <h1 id="h1_add">Add a Cake!</h1>
   {% endif %}
   <form enctype="multipart/form-data" action="" method="POST">
     {% csrf_token %}
@@ -13,7 +13,8 @@
       {{ form.as_table }}
       
     </table>
-    <input type="file" name="photo-file">
+    <br>
+    <input class="choose-file" type="file" name="photo-file">
     <br><br>
     <input type="submit" value="Create" class="btn">
     </div>
