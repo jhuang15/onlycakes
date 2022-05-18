@@ -235,7 +235,7 @@
     /* margin-top: 150px; */
     height: 180vh;
     background-attachment: fixed;
-    -webkit-background-size: cover;
+    background-size: cover;
     background-position: center;
 }
 
