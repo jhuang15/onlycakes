@@ -30,12 +30,15 @@
         <input class="choose-file" type="file" name="photo-file">
         <br><br>
         <input type="submit" class="btn" value="Upload Photo">
-      <input type="submit" value="Add Cake!" class="btn">
       </form>
       <br>
     <div class="card-action">
         <a href="{% url 'cakes_update' cake.id %}">Edit</a>
         <a href="{% url 'cakes_delete' cake.id %}">Delete</a>
+        <br>
+        <br>
+        <br>
+        <br> 
     </div>
   </div>
 
