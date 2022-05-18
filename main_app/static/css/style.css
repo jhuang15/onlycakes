@@ -81,6 +81,7 @@
     display: inline-block;
 }
 
+
 .card-img-top {
     object-fit: fill; 
     object-position: center;
@@ -209,14 +210,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10vmin;
 }
 
 #h1_edit{
     font-family: 'Cedarville Cursive', cursive;
     display: flex;
     justify-content: center;
-    margin-top: 10vmin;
+    padding: 10vmin 10vmin 5vmin 10vmin;
     font-size: 10vmin;
 }
 
@@ -224,6 +224,27 @@
     font-family: 'Cedarville Cursive', cursive;
     display: flex;
     justify-content: center;
-    margin-top: 10vmin;
+    padding: 10vmin 10vmin 5vmin 10vmin;
     font-size: 10vmin;
+}
+
+.add-container {
+    /* display: flex;
+    justify-content: center; */
+    /* flex-direction: column; */
+    /* margin-top: 150px; */
+    height: 180vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+#ed-but {
+    color:black;
+    background-color: white;
+}
+
+#ed-but:hover {
+    color:white;
+    background-color: rgb(181, 181, 181);
 }
