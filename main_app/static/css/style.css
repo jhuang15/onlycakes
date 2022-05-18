@@ -143,6 +143,22 @@
 
 
 
+
+.card-body {
+    display: grid;
+    margin-top: -6rem;
+    /* justify-content: center; */
+    text-align: center;
+}
+
+#det-pic {
+    margin-top: 9rem;
+}
+
+#det-desc {
+    padding: 15px;
+}
+
 #text-bg {
     background-color: white;
     background: url(50%-transparent-white.png);
