@@ -161,7 +161,7 @@
 
 #text-bg {
     background-color: white;
-    background: url(50%-transparent-white.png);
+    
     background: rgba(255,255,255,0.7);
     height: 18rem;
     width: 35rem;
