@@ -9,14 +9,14 @@
       <div class="col-lg-3 mb-4">
           <div class="card border-0">
             {% for photo in cake.photo_set.all|slice:":1" %}
-            <img class="card-img-top" src="{{photo.url}}" alt="cake">
+            <img class="card-img-top" id="idx-img" src="{{photo.url}}" alt="cake">
             {% empty %}
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" alt="cake">
+            <img class="card-img-top" id="idx-img" src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" alt="cake">
             {% endfor %}
               <div class="card-body">
                   <h5 class="card-title">{{ cake.name }}</h5>
                   <p class="card-text">{{ cake.description }}</p>
-                  <a href="/cakes/{{ cake.id }}" class="btn btn-outline-primary btn-sm">See Details</a>
+                  <a href="/cakes/{{ cake.id }}" class="btn btn-outline-primary btn-sm" id="see-btn">See Details</a>
               </div>
           </div>
         

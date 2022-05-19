@@ -1,5 +1,9 @@
 .navbar-custom {
     background-color: rgb(215, 219, 220);
+    border-bottom: none;
+}
+.navbar {
+    border-bottom: 1px solid #EBEBEB;
 }
 
 .navbar-text {
@@ -8,6 +12,18 @@
 
 #navbarNavDropdown {
     justify-content: right;
+}
+
+.nav-item:hover {
+    border-bottom: 2px solid #50ABE8;
+}
+
+.nav-item:active {
+    border-bottom: 2px solid #50ABE8;
+}
+
+.active {
+    border-bottom: 2px solid #50ABE8;
 }
 
 .collapse {
@@ -28,19 +44,26 @@
 }
 
 #search-bar {
-    background-color: rgb(215, 219, 220); 
-    border: 2px solid #fff; 
+    background-color: #ffffff; 
+    border: 1px solid #EBEBEB; 
     box-shadow: none; 
     border-radius: 50px;
     font: rgb(1, 1, 1);
 }
 
 #search-button {
-    background-color: rgb(215, 219, 220); 
-    border: 2px solid #fff; 
+    background-color: #50ABE8;  
+    border: none;
     box-shadow: none; 
     border-radius: 50px;
-    color: rgb(127, 127, 127);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    width: 100px;
+}
+#search-button:hover {
+    background-color: #ffffff;
+    color:#565656;
+    border: 1px solid #50ABE8;
 }
 
 .slogan {
@@ -88,7 +111,7 @@
     width: 260px;
     align-items: start;
 }
-.card-img-top:hover {
+#idx-img:hover {
     opacity: 0.5;
 }
 
@@ -114,6 +137,17 @@
     max-width: 300px;
     text-overflow: ellipsis;
     margin: 0;
+    color: #565656;
+}
+
+#see-btn {
+    border: 1px solid #50ABE8;
+    color:#565656;
+}
+
+#see-btn:hover {
+    background-color: #50ABE8;
+    color: #ffffff;
 }
 
 #detail-card.card {
