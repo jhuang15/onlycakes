@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
+  {% if cake.user == request.user %}
   <div class="card-action" id="func-div">
     <a id="edit-a" href="{% url 'cakes_update' cake.id %}">Edit</a>
     <a id="delete-a" href="{% url 'cakes_delete' cake.id %}">Delete</a>
   </div>
+  {% endif %}
 
   <h1 id="detail-title">{{ cake.name }}</h1>
   <p id="detail-createdby">Created By: {{ cake.user.username }} on {{ cake.creation_date }}</p>
