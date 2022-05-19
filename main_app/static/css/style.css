@@ -69,7 +69,7 @@
 .slogan {
     text-align: center;
     justify-content: center;
-    margin-top: 4rem;
+    margin-top: 12rem;
 }
 
 .pslogan {
@@ -90,8 +90,9 @@
 
 .slogansss {
     display: grid;
-    margin-top: -1.3rem;
+    margin-top: -16rem;
     justify-content: center;
+    align-items:center;
 }
 
 .slogan3 {
@@ -150,6 +151,25 @@
     color: #ffffff;
 }
 
+#func-div {
+    display: flex;
+    justify-content: end;
+    padding: 1vmin;
+}
+
+#edit-a, #delete-a {
+    margin: 2vmin;
+    text-decoration: none;
+    color: #777777 ;
+}
+
+#edit-a:hover{
+    color: #252525;
+}
+
+#delete-a:hover {
+    color: #d23636;
+}
 #detail-createdby {
     display:flex;
     justify-content: center;
@@ -162,13 +182,13 @@
 } 
 
 #tag-btn {
-    color: #767576;
+    color: #50ABE8;
     margin: 3px;
     border: none;
     border-radius: 0;
 }
 #tag-btn:hover {
-    color: #252525;
+    color: #565656;
     border-bottom: 2px solid #50ABE8;
 }
 
@@ -179,18 +199,42 @@
     color: #565656;
 }
 
-.choose-file {
-    width: 210px;
+#detail-container {
+    display: flex;
+    flex-direction: row;
+
 }
 
-#file-upload-button {
-    background-color:blue;
+#dr-div {
+    display: flex;
+    flex-direction: column;
+    padding: 2vmin;
+}
+
+.choose-file {
+    color: #767576;
+    font-size: 10px;
+    margin:7px;
+}
+
+#upload-btn {
+    color:#565656;
+    border: 1px solid #50ABE8;
+    font-size: 10px;
+    margin: 7px;
+}
+
+#upload-btn:hover {
+    color: white;
+    background-color: #50ABE8;
+    
 }
 
 .card-body {
     display: grid;
     margin-top: -6rem;
     text-align: center;
+    width: 260px;
 }
 
 #text-bg {
@@ -268,7 +312,7 @@
     font-family: 'Cedarville Cursive', cursive;
     display: flex;
     justify-content: center;
-    padding: 8vmin 10vmin 3vmin 10vmin;
+    padding: 5vmin 8vmin 3vmin 8vmin;
     font-size: 10vmin;
 }
 
@@ -331,3 +375,19 @@
     grid-template-columns: auto;
     grid-template-rows: auto;
 } 
+
+#see-btn {
+    border: 1px solid #50ABE8;
+    color:#565656;
+    width: auto;
+}
+#see-btn:hover {
+    background-color: #50ABE8;
+    color: #ffffff;
+}
+
+#del-conf {
+    display: grid;
+    justify-content: center;
+    margin-top: 3rem;
+}
