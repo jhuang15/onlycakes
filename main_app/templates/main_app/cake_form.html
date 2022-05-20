@@ -1,24 +1,31 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
-<div style="background-image: url('https://i.imgur.com/n6F41lu.jpg')" class="add-container" id="add-pic">
-
+<div
+  style="background-image: url('https://i.imgur.com/n6F41lu.jpg')"
+  class="add-container"
+  id="add-pic"
+>
   {% if object %}
   <h1 id="h1_edit">Edit&nbsp;{{object.name}}</h1>
-    {% else %}
+  {% else %}
   <h1 id="h1_add">Add a Cake!</h1>
   {% endif %}
   <form enctype="multipart/form-data" action="" method="POST" id="edit-form">
     {% csrf_token %}
     <div class="form-group" id="form_div">
-        {{ form }}
-      <br>
-      <input class="choose-file" type="file" name="photo-file">
-      <br><br>
+      {{ form }}
+      <br />
+      <input class="choose-file" type="file" name="photo-file" />
+      <br /><br />
       {% if object %}
-      <input type="submit" value="Update {{object.name}}" class="btn" id="ed-but">
-        {% else %}
-      <input type="submit" value="Create" class="btn" id="ed-but">
+      <input
+        type="submit"
+        value="Update {{object.name}}"
+        class="btn"
+        id="ed-but"
+      />
+      {% else %}
+      <input type="submit" value="Create" class="btn" id="ed-but" />
       {% endif %}
     </div>
   </form>
