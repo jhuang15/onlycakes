@@ -8,8 +8,8 @@ from taggit.managers import TaggableManager
 class Cake(models.Model):
     name = models.CharField(max_length=100)
     creation_date = models.DateField()
-    description = models.TextField(max_length=600)
-    recipe = models.TextField(max_length=600)
+    description = models.TextField()
+    recipe = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = TaggableManager()
 
