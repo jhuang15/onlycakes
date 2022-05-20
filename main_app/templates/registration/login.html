@@ -1,18 +1,18 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
-
-<div style="background-image: url('https://i.imgur.com/c6wzo37.jpg')" class="home-container" id="regpic">
+<div
+  style="background-image: url('https://i.imgur.com/c6wzo37.jpg')"
+  class="home-container"
+  id="regpic"
+>
   <h1 id="reg-head">Log In</h1>
 
   <div id="reg-body-log">
     <form method="POST" action="{% url 'login' %}">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" class="btn" value="Login">
-      <input type="hidden" name="next" value="{{ next }}">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="submit" class="btn" id="login-btn" value="Login" />
+      <input type="hidden" name="next" value="{{ next }}" />
     </form>
   </div>
-  
 </div>
 {% endblock %}

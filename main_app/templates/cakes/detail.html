@@ -1,50 +1,73 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %} {% if cake.user == request.user %}
+<div class="card-action" id="func-div">
+  <a id="edit-a" href="{% url 'cakes_update' cake.id %}">Edit</a>
+  <a id="delete-a" href="{% url 'cakes_delete' cake.id %}">Delete</a>
+</div>
+{% endif %}
 
-  {% if cake.user == request.user %}
-  <div class="card-action" id="func-div">
-    <a id="edit-a" href="{% url 'cakes_update' cake.id %}">Edit</a>
-    <a id="delete-a" href="{% url 'cakes_delete' cake.id %}">Delete</a>
+<h1 id="detail-title">{{ cake.name }}</h1>
+<p id="detail-createdby">
+  Created By: {{ cake.user.username }} on {{ cake.creation_date }}
+</p>
+
+<div class="card-content" id="tag-div">
+  {% for tag in cake.tags.all %}
+  <a href="{% url 'cakes_by_tag' tag.slug %}" class="btn" id="tag-btn"
+    >{{tag.name}}</a
+  >
+  {% endfor %}
+</div>
+<p id="tag-p">View tags for more related content</p>
+
+<div class="container" id="detail-container">
+  <div class="card-content" id="photos-div">
+    {% for photo in cake.photo_set.all %}
+    <img
+      class="card-img-top img-fluid"
+      src="{{photo.url}}"
+      alt="cake"
+      id="detail-pic"
+    />
+    {% empty %}
+    <img
+      class="card-img-top img-fluid"
+      id="detail-pic"
+      src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80"
+      alt="cake"
+    />
+    {% endfor %} {% if cake.user == request.user %}
+    <form
+      action="{% url 'add_photo' cake.id %}"
+      enctype="multipart/form-data"
+      method="POST"
+      alt="Cake Photo"
+      class="card-panel"
+    >
+      {% csrf_token %}
+      <br />
+      <input
+        class="choose-file"
+        id="choose-input"
+        type="file"
+        name="photo-file"
+      />
+      <input type="submit" class="btn" id="upload-btn" value="Upload Photo" />
+      <br />
+    </form>
+    {% endif %}
   </div>
-  {% endif %}
-
-  <h1 id="detail-title">{{ cake.name }}</h1>
-  <p id="detail-createdby">Created By: {{ cake.user.username }} on {{ cake.creation_date }}</p>
-
-    <div class="card-content" id="tag-div">
-      {% for tag in cake.tags.all %}
-      <a href="{% url 'cakes_by_tag' tag.slug %}" class="btn" id="tag-btn">{{tag.name}}</a>
-      {% endfor %}
-    </div>
-    <p id="tag-p">View tags for more related content</p>
-
-    <div class="container" id="detail-container">
-    <div class="card-content" id="photos-div">
-      {% for photo in cake.photo_set.all %}
-      <img class="card-img-top img-fluid" src="{{photo.url}}" alt="cake" id="detail-pic">
-      {% empty %}
-      <img class="card-img-top img-fluid" id="detail-pic" src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" alt="cake">
-      {% endfor %}
-      
-      <form action="{% url 'add_photo' cake.id %}" enctype="multipart/form-data" method="POST" alt="Cake Photo" class="card-panel">
-        {% csrf_token %}
-        <br>
-        <input class="choose-file" id="choose-input" type="file" name="photo-file">
-        <input type="submit" class="btn" id="upload-btn" value="Upload Photo">
-        <br>
-      </form>
-      
-    </div>
-    <div id="dr-div">
+  <div id="dr-div">
     <div class="card-content" id="description-div">
       <p id="det-desc">{{ cake.description }}</p>
     </div>
-    <hr>
+    <hr />
     <div class="card-content" id="recipe-div">
-      <p><b>Recipe: </b><br> {{ cake.recipe }}</p>
+      <p>
+        <b>Recipe: </b><br />
+        {{ cake.recipe }}
+      </p>
     </div>
   </div>
-
-  </div>
+</div>
 
 {% endblock %}
