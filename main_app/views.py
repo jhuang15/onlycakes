@@ -7,45 +7,41 @@ from django.views.generic import ListView
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class CakeCreate(CreateView):
+class CakeCreate(LoginRequiredMixin, CreateView):
   model = Cake
   fields = ['name', 'creation_date', 'description', 'recipe', 'tags']
   success_url = '/cakes/'
 
   def form_valid(self, form):
-    # assign logged in users id
-    #fomr.instance is the new cat object (unsaved to db)
     form.instance.user = self.request.user
-    # let createView's form_valid method do its thing
     super().form_valid(form)
     photo_file = self.request.FILES.get('photo-file', None)
     if photo_file:
         s3 = boto3.client('s3')
-        # need a unique "key" for S3 / needs image file extension too
         key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
-        # just in case something goes wrong
         try:
             bucket = os.environ['S3_BUCKET']
             s3.upload_fileobj(photo_file, bucket, key)
-            # build the full url string
             url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
-            # we can assign to cat_id or cat (if you have a cat object)
             Photo.objects.create(url=url, cake_id=self.object.pk)
         except Exception as e:
             print('An error occurred uploading file to S3')
             print(e)
     return redirect('index')
         
-class CakeUpdate(UpdateView):
+class CakeUpdate(LoginRequiredMixin, UpdateView):
   model = Cake
   fields = ['name', 'description', 'recipe', 'tags']
 
-class CakeDelete(DeleteView):
+class CakeDelete(LoginRequiredMixin, DeleteView):
   model = Cake
   success_url = '/cakes/'
 
+@login_required
 def cakes_by_tag(request, tag_slug):
   cakes = Cake.objects.filter(tags__name__in=[tag_slug])
   return render(request, 'cakes/index.html', {'cakes': cakes, 'tag': tag_slug})
@@ -53,17 +49,21 @@ def cakes_by_tag(request, tag_slug):
 def home(request):
   return render(request, 'home.html')
 
+@login_required
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 def cakes_index(request):
   cakes = Cake.objects.all()
   return render(request, 'cakes/index.html', { 'cakes': cakes })
 
+@login_required
 def cakes_detail(request, cake_id):
   cake = Cake.objects.get(id=cake_id)
   return render(request, 'cakes/detail.html', { 'cake': cake})
 
+@login_required
 def cake_search(request):
   if request.method == "POST":
     searched = request.POST['searched']
@@ -72,20 +72,16 @@ def cake_search(request):
   else:
     return render(request, 'main_app/cake_search.html', {})
 
+@login_required
 def add_photo(request, cake_id):
-    # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
         s3 = boto3.client('s3')
-        # need a unique "key" for S3 / needs image file extension too
         key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
-        # just in case something goes wrong
         try:
             bucket = os.environ['S3_BUCKET']
             s3.upload_fileobj(photo_file, bucket, key)
-            # build the full url string
             url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
-            # we can assign to cat_id or cat (if you have a cat object)
             Photo.objects.create(url=url, cake_id=cake_id)
         except Exception as e:
             print('An error occurred uploading file to S3')

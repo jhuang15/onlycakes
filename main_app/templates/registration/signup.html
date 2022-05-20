@@ -1,18 +1,21 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
-<div style="background-image: url('https://i.imgur.com/NKUGQl7.jpg')" class="home-container" id="regpic">
+<div
+  style="background-image: url('https://i.imgur.com/NKUGQl7.jpg')"
+  class="home-container"
+  id="regpic"
+>
   <h1 id="reg-head">Sign Up</h1>
 
-    <div id="reg-body">
-    {% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
+  <div id="reg-body">
+    {% if error_message %}
+    <p class="red-text">{{ error_message }}</p>
+    {% endif %}
 
-      <form method="POST" action="{% url 'signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" class="btn" value="Sign Up">
-      </form>
-    </div>
-  
+    <form method="POST" action="{% url 'signup' %}">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="submit" class="btn" value="Sign Up" />
+    </form>
+  </div>
 </div>
 {% endblock %}

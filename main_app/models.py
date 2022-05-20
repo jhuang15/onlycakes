@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
-# from taggit.serializers import (TagListSerializerField, TaggitSerializer)
 
 
 class Cake(models.Model):
