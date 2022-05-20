@@ -2,13 +2,11 @@
 
 {% block content %}
 <div id="del-conf">
-  <h1>Delete Cake</h1>
 
-  <h4>Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
-
+  <h4>Are you sure you want to delete <b><u>{{ object.name }}</u></b>?</h4>
   <form action="" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Yes - Delete!" class="btn"> &nbsp;
+    <input type="submit" value="Delete" class="btn" id="confirm-btn"> &nbsp;
     <a href="{% url 'detail' cake.id %}">Cancel</a>
   </form>
 </div>

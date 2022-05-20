@@ -1,5 +1,5 @@
 .navbar-custom {
-    background-color: rgb(215, 219, 220);
+    background-color: #EBEAF1;
     border-bottom: none;
 }
 .navbar {
@@ -316,6 +316,13 @@
     font-size: 10vmin;
 }
 
+#h1_search {
+    display: flex;
+    justify-content: center;
+    padding: 5vmin 8vmin 3vmin 8vmin;
+    font-size: 7vmin;
+}
+
 .add-container {
     height: 180vh;
     background-attachment: fixed;
@@ -387,7 +394,41 @@
 }
 
 #del-conf {
-    display: grid;
+    display: flex;
     justify-content: center;
-    margin-top: 3rem;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20vmin;
+}
+
+#reg-body-log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-btn {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 4px 8px;
+    color: #565656;
+    border: 1px solid #50ABE8;
+    font-size: 14px;
+    margin-left: 90px;
+}
+
+#login-btn:hover {
+    color: white;
+    background-color: #50ABE8;
+}
+
+#confirm-btn {
+    font-size: 14px;
+    border: 1px solid #d23636;
+}
+
+#confirm-btn:hover {
+    color: white;
+    background-color: #d23636;
 }
