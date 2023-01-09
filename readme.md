@@ -55,7 +55,7 @@
 ![Django](https://img.shields.io/badge/-Django-333?style=flat&logo=django)
 <h2>Getting Started </h2>
 <a href="https://trello.com/b/EX6KSP09/only-cakes">Trello</a>
-<a href="https://onlycakes.herokuapp.com/">Deployed Heroku App</a>
+<a href="https://theonlycakes.up.railway.app/">Deployed Railway App</a>
 <h3>Instructions </h3>
 <details open>
   <summary>Community Guidelines</summary>
